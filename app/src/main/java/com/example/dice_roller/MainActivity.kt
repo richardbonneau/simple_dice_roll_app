@@ -11,12 +11,15 @@ import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
+    lateinit var rollButton:Button
+    lateinit var diceImage:ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val rollButton:Button = findViewById(R.id.roll_button)
-        val diceImage:ImageView = findViewById(R.id.dice_image)
+        rollButton = findViewById(R.id.roll_button)
+        diceImage = findViewById(R.id.dice_image)
 
         fun rollDice(){
             Toast.makeText(this, "button clicked",
