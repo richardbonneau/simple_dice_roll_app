@@ -12,16 +12,20 @@ import kotlin.random.Random
 class MainActivity : AppCompatActivity() {
 
     lateinit var rollButton:Button
-    lateinit var diceImage:ImageView
+    lateinit var clearButton:Button
+    lateinit var firstDiceImage:ImageView
+    lateinit var secondDiceImage:ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         rollButton = findViewById(R.id.roll_button)
-        diceImage = findViewById(R.id.dice_image)
+        clearButton = findViewById(R.id.clear_button)
+        firstDiceImage = findViewById(R.id.first_dice_image)
+        secondDiceImage = findViewById(R.id.second_dice_image)
 
-        fun rollDice(){
+        fun rollDice(diceImage:ImageView){
             Toast.makeText(this, "button clicked",
                 Toast.LENGTH_SHORT).show()
 
@@ -39,7 +43,14 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        rollButton.setOnClickListener { rollDice() }
+        rollButton.setOnClickListener {
+            rollDice(firstDiceImage)
+            rollDice(secondDiceImage)
+        }
+        clearButton.setOnClickListener {
+            firstDiceImage.setImageResource(R.drawable.empty_dice)
+            secondDiceImage.setImageResource(R.drawable.empty_dice)
+        }
 
 
     }
